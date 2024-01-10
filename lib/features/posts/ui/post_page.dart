@@ -30,7 +30,7 @@ class _PostsPageState extends State<PostsPage> {
             onPressed: () {
               postsBloc.add(PostAddEvent());
             }),
-        body: BlocConsumer<PostsBloc, PostsState>(
+        body: SimplifiedBlocBuilder<>(
           bloc: postsBloc,
           listenWhen: (previous, current) => current is PostsActionState,
           buildWhen: (previous, current) => current is! PostsActionState,

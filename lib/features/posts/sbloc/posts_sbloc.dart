@@ -1,0 +1,4 @@
+class ApiSbloc extends SimplifiedBloc {
+
+
+}

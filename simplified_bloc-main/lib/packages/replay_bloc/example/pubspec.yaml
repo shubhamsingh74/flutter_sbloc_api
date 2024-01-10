@@ -1,0 +1,17 @@
+name: example
+description: A new Flutter project.
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  bloc: ^8.1.1
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.2
+  replay_bloc: ^0.2.2
+
+flutter:
+  uses-material-design: true

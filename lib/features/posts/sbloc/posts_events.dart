@@ -1,0 +1,3 @@
+class ApiEvents extends BlocEvent {
+
+}
