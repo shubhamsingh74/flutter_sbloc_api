@@ -14,9 +14,12 @@ class PostsRepo {
       List result = jsonDecode(response.body);
 
       for (int i = 0; i < result.length; i++) {
-        PostDataUiModel post =
-        PostDataUiModel.fromMap(result[i] as Map<String, dynamic>);
+        PostDataUiModel post = PostDataUiModel.fromMap(result[i] as Map<String, dynamic>);
         posts.add(post);
+        // print(posts[i].title);
+        // print("okkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
+        // print(posts[i].body);
+
       }
 
       return posts;
