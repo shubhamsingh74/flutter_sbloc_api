@@ -16,10 +16,6 @@ class PostsRepo {
       for (int i = 0; i < result.length; i++) {
         PostDataUiModel post = PostDataUiModel.fromMap(result[i] as Map<String, dynamic>);
         posts.add(post);
-        // print(posts[i].title);
-        // print("okkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
-        // print(posts[i].body);
-
       }
 
       return posts;
@@ -28,6 +24,8 @@ class PostsRepo {
       return [];
     }
   }
+
+
 
   static Future<bool> addPost() async {
     var client = http.Client();

@@ -4,26 +4,76 @@ import 'package:flutter_sbloc_api/features/posts/repo/post_repo.dart';
 import 'package:flutter_sbloc_api/features/posts/sbloc/posts_events.dart';
 import 'package:flutter_sbloc_api/simplified_bloc.dart';
 
+final ApiSbloc bloc = ApiSbloc();
+
 class ApiSbloc extends SimplifiedBloc {
-     List<PostDataUiModel> posts = [];
+  List<PostDataUiModel> posts = [];
 
   FutureOr<void> postInitialFetchEvent() async {
     addEvent(ApiEvents.postInitialFetchEvent);
-  }
-  @override
-  onEvent(BlocEvent event) async {
-    state = event;
-    if (event == ApiEvents.postInitialFetchEvent) {
-      posts = await PostsRepo.fetchPosts();
-      print("Is list updated..........?");
-      print(posts.length);
-     // super.onState(ApiEvents.postInitialFetchEvent);
-    }
-    super.onEvent(event);
+    posts = await PostsRepo.fetchPosts();
+    print("Is list updated..........?");
+    print(posts.length);
+    addEvent(ApiEvents.postDataLoad);
   }
 
 
+  // @override
+  // onEvent(BlocEvent event) async {
+  //   state = event;
+  //   if (event == ApiEvents.postInitialFetchEvent) {
+  //     posts = await PostsRepo.fetchPosts();
+  //     print("Is list updated..........?");
+  //     print(posts.length);
+  //     // super.onState(ApiEvents.postInitialFetchEvent);
+  //   }
+  //   super.onEvent(event);
+  // }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -47,7 +97,6 @@ class ApiSbloc extends SimplifiedBloc {
 //     super.onEvent(event);
 //   }
 // }
-
 
 ///-----classical bloc way using state and events--------///
 // class PostsBloc extends Bloc<PostsEvent, PostsState> {

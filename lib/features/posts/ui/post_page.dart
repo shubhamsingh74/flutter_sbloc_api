@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sbloc_api/features/posts/models/post_data_ui_model.dart';
 import 'package:flutter_sbloc_api/features/posts/sbloc/posts_events.dart';
 import 'package:flutter_sbloc_api/features/posts/sbloc/posts_sbloc.dart';
 import 'package:flutter_sbloc_api/simplified_bloc.dart';
@@ -11,12 +12,20 @@ class PostsPage extends StatefulWidget {
 }
 
 class _PostsPageState extends State<PostsPage> {
+  List<PostDataUiModel> startPosts = [];
+
   @override
   void initState() {
-    ApiSbloc().postInitialFetchEvent();
-    print(ApiSbloc().posts.length);
+    bloc.postInitialFetchEvent();
+    print(bloc.posts.length);
     print("is Api works well.......?");
     super.initState();
+  }
+
+  void loadData(ApiSbloc postbloc) {
+    startPosts = postbloc.posts;
+    print(startPosts.length);
+    print("kkkkkkkkkkkkkkkkkk");
   }
 
   @override
@@ -43,10 +52,11 @@ class _PostsPageState extends State<PostsPage> {
             bloc: ApiSbloc(),
             eventFilter: [
               ApiEvents.postInitialFetchEvent,
-              ApiEvents.postAddEvent,
+              ApiEvents.postDataLoad,
             ],
             builder: (BuildContext context, dynamic state) {
               ApiSbloc bloc = state;
+              loadData(bloc);
               return Container(
                 child: ListView.builder(
                   itemCount: bloc.posts.length,
