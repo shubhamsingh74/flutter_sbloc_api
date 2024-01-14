@@ -18,14 +18,14 @@ class _PostsPageState extends State<PostsPage> {
   void initState() {
     bloc.postInitialFetchEvent();
     print(bloc.posts.length);
-    print("is Api works well.......?");
+    print("is Api works well in init state.......?");
     super.initState();
   }
 
   void loadData(ApiSbloc postbloc) {
     startPosts = postbloc.posts;
     print(startPosts.length);
-    print("kkkkkkkkkkkkkkkkkk");
+    print("okay");
   }
 
   @override
@@ -57,47 +57,44 @@ class _PostsPageState extends State<PostsPage> {
             builder: (BuildContext context, dynamic state) {
               ApiSbloc bloc = state;
               loadData(bloc);
-              return Container(
-                child: ListView.builder(
-                  itemCount: bloc.posts.length,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 15, vertical: 10),
-                      child: Material(
-                        elevation: 5,
-                        borderRadius: BorderRadius.circular(20),
-                        shadowColor: Colors.red,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Colors.blue.shade400,
-                          ),
-                          padding: const EdgeInsets.all(10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                bloc.posts[index].title,
-                                style: const TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 20),
-                              ),
-                              Text(
-                                bloc.posts[index].body,
-                                style: const TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 16),
-                              )
-                            ],
-                          ),
+              return ListView.builder(
+                itemCount: bloc.posts.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 15, vertical: 10),
+                    child: Material(
+                      elevation: 5,
+                      borderRadius: BorderRadius.circular(20),
+                      shadowColor: Colors.red,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.blue.shade400,
+                        ),
+                        padding: const EdgeInsets.all(10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text( "${index+1}. ${bloc.posts[index].title}",
+                              style: const TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 20),
+                            ),
+                            Text(
+                              bloc.posts[index].body,
+                              style: const TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 16),
+                            )
+                          ],
                         ),
                       ),
-                    );
-                  },
-                ),
+                    ),
+                  );
+                },
               );
             }));
   }

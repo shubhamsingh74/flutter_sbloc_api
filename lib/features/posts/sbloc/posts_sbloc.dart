@@ -17,6 +17,7 @@ class ApiSbloc extends SimplifiedBloc {
     addEvent(ApiEvents.postDataLoad);
   }
 
+  ///----here onEvent does not works-----------///
 
   // @override
   // onEvent(BlocEvent event) async {
