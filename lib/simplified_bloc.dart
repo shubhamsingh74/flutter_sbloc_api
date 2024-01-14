@@ -23,6 +23,7 @@ abstract class SimplifiedBloc {
       StreamController<BlocEvent>();
 
   Stream<BlocEvent> get stream => _streamController.stream;
+
   Stream<BlocEvent> get globalStream => _globalStreamController.stream;
 
   List<BlocData> blocs = [];
@@ -169,5 +170,6 @@ class BlocEvent {
   static final error = BlocEvent('Error');
 
   final String name;
+
   BlocEvent(this.name);
 }

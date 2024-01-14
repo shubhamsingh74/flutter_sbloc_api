@@ -40,16 +40,16 @@ class _PostsPageState extends State<PostsPage> {
           backgroundColor: Colors.blue,
           centerTitle: true,
         ),
-        floatingActionButton: FloatingActionButton(
-            backgroundColor: Colors.blue,
-            onPressed: () {},
-            child: const Icon(
-              Icons.add,
-              color: Colors.white,
-              size: 30,
-            )),
+        // floatingActionButton: FloatingActionButton(
+        //     backgroundColor: Colors.blue,
+        //     onPressed: () {},
+        //     child: const Icon(
+        //       Icons.add,
+        //       color: Colors.white,
+        //       size: 30,
+        //     )),
         body: SimplifiedBlocBuilder(
-            bloc: ApiSbloc(),
+            bloc: bloc,
             eventFilter: [
               ApiEvents.postInitialFetchEvent,
               ApiEvents.postDataLoad,
