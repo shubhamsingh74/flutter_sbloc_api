@@ -1,6 +1,5 @@
 # flutter_sbloc_api
-
-A new Flutter project.
+Flutter project.
 
 ## Getting Started
 
